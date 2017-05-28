@@ -21,6 +21,6 @@ COPY container-entrypoint /usr/sbin/container-entrypoint
 
 WORKDIR /openshift
 
-ENV KUBECONFIG .kubeconfig
+ENV KUBECONFIG /openshift/.kubeconfig
 
 ENTRYPOINT ["container-entrypoint"]
