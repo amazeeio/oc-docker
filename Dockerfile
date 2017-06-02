@@ -5,7 +5,7 @@ ENV OC_VERSION=v1.4.1 \
 
 RUN apk add --no-cache curl
 
-RUN curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/1.0.0-RC1/ep-linux && \ 
+RUN curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/1.0.0-RC1/ep-linux && \
     chmod +x /usr/local/bin/ep
 
 RUN mkdir -p /openshift-origin-client-tools && \
@@ -21,6 +21,6 @@ COPY container-entrypoint /usr/sbin/container-entrypoint
 
 WORKDIR /openshift
 
-ENV KUBECONFIG .kubeconfig
+ENV KUBECONFIG /openshift/.kubeconfig
 
 ENTRYPOINT ["container-entrypoint"]
