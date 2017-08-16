@@ -10,9 +10,6 @@ elif [ ! -z "$OPENSHIFT_USERNAME" ] && [ ! -z "$OPENSHIFT_PASSWORD" ]; then
   oc login --insecure-skip-tls-verify -u "$OPENSHIFT_USERNAME" -p "$OPENSHIFT_PASSWORD" "${OPENSHIFT_CONSOLE}" > /dev/null
   # also export our token, in case we need it maybe later
   export OPENSHIFT_TOKEN=$(oc whoami -t)
-else
-  echo "ERROR: no OPENSHIFT_TOKEN or OPENSHIFT_USERNAME/OPENSHIFT_PASSWORD provided"
-  exit 1
 fi
 
 exec "$@"
